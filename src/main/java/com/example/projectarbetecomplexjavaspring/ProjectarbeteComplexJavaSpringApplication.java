@@ -9,6 +9,7 @@ public class ProjectarbeteComplexJavaSpringApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProjectarbeteComplexJavaSpringApplication.class, args);
 
+
     }
 
 }
