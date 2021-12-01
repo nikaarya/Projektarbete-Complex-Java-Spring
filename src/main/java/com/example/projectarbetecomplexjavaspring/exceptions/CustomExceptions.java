@@ -1,8 +1,6 @@
-package com.example.projectarbetecomplexjavaspring.Exceptions;
+package com.example.projectarbetecomplexjavaspring.exceptions;
 
 import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 public class CustomExceptions extends WebApplicationException {
 
