@@ -2,10 +2,7 @@ package com.example.projectarbetecomplexjavaspring.entity;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class BookEntity {
@@ -18,6 +15,9 @@ public class BookEntity {
     private String genre;
     @NotNull
     private String isbn;
+
+    @ManyToOne
+    private LibraryEntity library;
 
     public BookEntity(String name, String genre, String isbn) {
         this.name = name;
@@ -58,5 +58,13 @@ public class BookEntity {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public LibraryEntity getLibrary() {
+        return library;
+    }
+
+    public void setLibrary(LibraryEntity library) {
+        this.library = library;
     }
 }

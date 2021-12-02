@@ -1,6 +1,7 @@
 package com.example.projectarbetecomplexjavaspring.service;
 
 import com.example.projectarbetecomplexjavaspring.entity.BookEntity;
+import com.example.projectarbetecomplexjavaspring.entity.LibraryEntity;
 import com.example.projectarbetecomplexjavaspring.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
