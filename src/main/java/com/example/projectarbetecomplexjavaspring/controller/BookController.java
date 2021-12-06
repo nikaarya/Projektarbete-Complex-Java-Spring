@@ -35,4 +35,11 @@ public class BookController {
         Optional<BookEntity> foundBook = bookService.findBookById(id);
         return new ResponseEntity<>(foundBook, HttpStatus.OK);
     }
+
+    @GetMapping()
+    public ResponseEntity<Iterable<BookEntity>> findAllBooks() {
+        Iterable<BookEntity> allBooks = bookService.findAllBooks();
+        return new ResponseEntity<>(allBooks, HttpStatus.OK);
+    }
+
 }

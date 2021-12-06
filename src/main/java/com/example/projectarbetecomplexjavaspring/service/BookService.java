@@ -29,4 +29,9 @@ public class BookService {
     public Optional<BookEntity> findBookById(Long id) {
         return bookRepository.findById(id);
     }
+
+    public Iterable<BookEntity> findAllBooks() {
+        return bookRepository.findAll();
+    }
+
 }
