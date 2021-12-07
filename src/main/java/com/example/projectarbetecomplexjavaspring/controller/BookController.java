@@ -24,15 +24,15 @@ public class BookController {
         BookEntity createdBook = bookService.createBook(bookEntity);
         return new ResponseEntity<>(createdBook, HttpStatus.CREATED);
     }
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
-        bookService.deleteBook(id);
+    @DeleteMapping("{bookId}")
+    public ResponseEntity<Void> deleteBook(@PathVariable Long bookId) {
+        bookService.deleteBook(bookId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<Optional<BookEntity>> findBookById(@PathVariable Long id) {
-        Optional<BookEntity> foundBook = bookService.findBookById(id);
+    @GetMapping("{bookId}")
+    public ResponseEntity<Optional<BookEntity>> findBookById(@PathVariable Long bookId) {
+        Optional<BookEntity> foundBook = bookService.findBookById(bookId);
         return new ResponseEntity<>(foundBook, HttpStatus.OK);
     }
 

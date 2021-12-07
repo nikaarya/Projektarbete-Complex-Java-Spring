@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class BookEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long bookId;
     @NotNull
     private String name;
     @NotNull
@@ -28,12 +28,12 @@ public class BookEntity {
     public BookEntity() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getBookId() {
+        return bookId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBookId(Long bookId) {
+        this.bookId = bookId;
     }
 
     public String getName() {

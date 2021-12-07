@@ -12,7 +12,7 @@ import java.util.Set;
 public class LibraryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long libraryId;
     @NotNull
     private String name;
 
@@ -31,12 +31,12 @@ public class LibraryEntity {
         bookEntity.setLibrary(this);
     }
 
-    public Long getId() {
-        return id;
+    public Long getLibraryId() {
+        return libraryId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setLibraryId(Long libraryId) {
+        this.libraryId = libraryId;
     }
 
     public String getName() {

@@ -21,13 +21,13 @@ public class BookService {
         return bookRepository.save(bookEntity);
     }
 
-    public void deleteBook(Long id) {
-        BookEntity foundBook = bookRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-        bookRepository.deleteById(foundBook.getId());
+    public void deleteBook(Long bookId) {
+        BookEntity foundBook = bookRepository.findById(bookId).orElseThrow(EntityNotFoundException::new);
+        bookRepository.deleteById(foundBook.getBookId());
     }
 
-    public Optional<BookEntity> findBookById(Long id) {
-        return bookRepository.findById(id);
+    public Optional<BookEntity> findBookById(Long bookId) {
+        return bookRepository.findById(bookId);
     }
 
     public Iterable<BookEntity> findAllBooks() {
