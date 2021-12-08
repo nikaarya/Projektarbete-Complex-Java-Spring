@@ -7,6 +7,7 @@ import com.example.projectarbetecomplexjavaspring.repository.LibraryRepository;
 import org.springframework.stereotype.Service;
 
 
+
 @Service
 public class LibraryService {
 
@@ -19,7 +20,11 @@ public class LibraryService {
     }
 
     public LibraryEntity createLibrary(LibraryEntity libraryEntity) {
+
         //libraryEntity.addBook(new BookEntity("Harry Potter", "Fantasy", "7863536"));
+
+        BookEntity book = bookRepository.findByName("It");
+        // libraryEntity.addBook(book);
         return libraryRepository.save(libraryEntity);
     }
 
