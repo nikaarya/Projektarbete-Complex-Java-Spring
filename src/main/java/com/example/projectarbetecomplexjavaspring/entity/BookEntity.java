@@ -1,5 +1,6 @@
 package com.example.projectarbetecomplexjavaspring.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -60,6 +61,7 @@ public class BookEntity {
         this.isbn = isbn;
     }
 
+    @JsonIgnore
     public LibraryEntity getLibrary() {
         return library;
     }

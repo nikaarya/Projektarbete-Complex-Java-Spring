@@ -24,8 +24,20 @@ public class ProjectarbeteComplexJavaSpringApplication {
             BookRepository bookRepository) {
         return (args) -> {
 
-            //libraryRepository.save(new LibraryEntity("Lib1"));
+            /*
+            libraryRepository.save(new LibraryEntity("Lib1"));
             bookRepository.save(new BookEntity("It","horror","111-111"));
+            */
+
+            LibraryEntity library1 = new LibraryEntity("lib");
+            BookEntity book1 = new BookEntity("It", "horror", "222-111");
+
+            //bookRepository.save(book1);
+            //libraryRepository.save(library1);
+
+
+            library1.addBook(book1);
+            libraryRepository.save(library1);
 
         };
     }
