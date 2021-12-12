@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class SubjectEntity {
@@ -15,6 +17,9 @@ public class SubjectEntity {
 
     @ManyToOne
     private TeacherEntity teacher;
+
+    @ManyToMany
+    private List<StudentEntity> students = new ArrayList<>();
 
     public SubjectEntity(String name) {
         this.name = name;
@@ -46,5 +51,12 @@ public class SubjectEntity {
 
     public void setTeacher(TeacherEntity teacher) {
         this.teacher = teacher;
+    }
+
+    public List<StudentEntity> getStudents() {
+        return students;
+    }
+    public void setStudents(List<StudentEntity> students) {
+        this.students = students;
     }
 }

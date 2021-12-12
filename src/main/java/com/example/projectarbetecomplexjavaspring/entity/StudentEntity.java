@@ -2,10 +2,9 @@ package com.example.projectarbetecomplexjavaspring.entity;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class StudentEntity {
@@ -16,12 +15,20 @@ public class StudentEntity {
     private String name;
     private String email;
 
+    @ManyToMany
+    private List<SubjectEntity> subjects = new ArrayList<>();
+
     public StudentEntity(String name, String email) {
         this.name = name;
         this.email = email;
     }
 
     public StudentEntity() {
+    }
+
+    public void addSubject(SubjectEntity subjectEntity) {
+        subjects.add(subjectEntity);
+        subjectEntity.getStudents().add(this);
     }
 
     public Long getId() {
@@ -46,6 +53,14 @@ public class StudentEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<SubjectEntity> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(List<SubjectEntity> subjects) {
+        this.subjects = subjects;
     }
 }
 
