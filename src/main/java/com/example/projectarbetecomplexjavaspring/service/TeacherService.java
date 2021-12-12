@@ -1,5 +1,6 @@
 package com.example.projectarbetecomplexjavaspring.service;
 
+import com.example.projectarbetecomplexjavaspring.entity.LibraryEntity;
 import com.example.projectarbetecomplexjavaspring.entity.TeacherEntity;
 import com.example.projectarbetecomplexjavaspring.repository.TeacherRepository;
 import org.springframework.stereotype.Service;
@@ -25,8 +26,11 @@ public class TeacherService {
         teacherRepository.deleteById(foundTeacher.getId());
     }
 
+    public Iterable<TeacherEntity> findAllTeachers() {
+        return teacherRepository.findAll();
+    }
+
     public Optional<TeacherEntity> findTeacherById(Long id){
         return teacherRepository.findById(id);
-
     }
 }

@@ -1,5 +1,6 @@
 package com.example.projectarbetecomplexjavaspring.controller;
 
+import com.example.projectarbetecomplexjavaspring.entity.LibraryEntity;
 import com.example.projectarbetecomplexjavaspring.entity.TeacherEntity;
 import com.example.projectarbetecomplexjavaspring.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,11 @@ public class TeacherController {
     public ResponseEntity<Optional<TeacherEntity>> findTeacherById(@PathVariable Long id) {
         Optional<TeacherEntity> foundTeacher = teacherService.findTeacherById(id);
         return new ResponseEntity<>(foundTeacher, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<Iterable<TeacherEntity>> findAllTeachers() {
+        Iterable<TeacherEntity> allTeachers = teacherService.findAllTeachers();
+        return new ResponseEntity<>(allTeachers, HttpStatus.OK);
     }
 }

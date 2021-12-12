@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("subjects")
 public class SubjectController {
@@ -25,6 +27,12 @@ public class SubjectController {
     public ResponseEntity<Void> deleteSubject(@PathVariable Long id) {
         subjectService.deleteSubject(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Optional<SubjectEntity>> findSubjectById(@PathVariable Long id) {
+        Optional<SubjectEntity> foundSubject = subjectService.findSubjectById(id);
+        return new ResponseEntity<>(foundSubject, HttpStatus.OK);
     }
 
     @GetMapping()

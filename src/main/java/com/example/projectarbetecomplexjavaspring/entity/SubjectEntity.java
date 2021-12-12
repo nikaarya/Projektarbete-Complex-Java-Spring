@@ -1,11 +1,9 @@
 package com.example.projectarbetecomplexjavaspring.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class SubjectEntity {
@@ -14,6 +12,9 @@ public class SubjectEntity {
     private Long id;
     @NotNull
     private String name;
+
+    @ManyToOne
+    private TeacherEntity teacher;
 
     public SubjectEntity(String name) {
         this.name = name;
@@ -36,5 +37,14 @@ public class SubjectEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @JsonIgnore
+    public TeacherEntity getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(TeacherEntity teacher) {
+        this.teacher = teacher;
     }
 }

@@ -20,11 +20,6 @@ public class LibraryService {
     }
 
     public LibraryEntity createLibrary(LibraryEntity libraryEntity) {
-
-        //libraryEntity.addBook(new BookEntity("Harry Potter", "Fantasy", "7863536"));
-
-        //BookEntity book = bookRepository.findByName("It");
-        // libraryEntity.addBook(book);
         return libraryRepository.save(libraryEntity);
     }
 

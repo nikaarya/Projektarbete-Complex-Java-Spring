@@ -1,10 +1,12 @@
 package com.example.projectarbetecomplexjavaspring.service;
 
 import com.example.projectarbetecomplexjavaspring.entity.SubjectEntity;
+import com.example.projectarbetecomplexjavaspring.entity.TeacherEntity;
 import com.example.projectarbetecomplexjavaspring.repository.SubjectRepository;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
 
 @Service
 public class SubjectService {
@@ -26,6 +28,10 @@ public class SubjectService {
 
     public Iterable<SubjectEntity> findAllSubjects() {
         return subjectRepository.findAll();
+    }
+
+    public Optional<SubjectEntity> findSubjectById(Long id){
+        return subjectRepository.findById(id);
     }
 
 
