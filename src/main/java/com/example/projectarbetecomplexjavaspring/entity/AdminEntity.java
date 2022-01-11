@@ -1,19 +1,23 @@
 package com.example.projectarbetecomplexjavaspring.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-public class AdminEntity {
+public class AdminEntity extends UserEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotNull
     private String name;
+
+    public AdminEntity(String username, String password, Set<RoleEntity> roles, String name) {
+        super(username, password, roles);
+        this.name = name;
+    }
 
     public AdminEntity(String name) {
         this.name = name;
@@ -37,4 +41,5 @@ public class AdminEntity {
     public void setName(String name) {
         this.name = name;
     }
+
 }

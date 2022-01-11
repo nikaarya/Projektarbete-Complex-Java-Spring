@@ -1,5 +1,6 @@
 package com.example.projectarbetecomplexjavaspring.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class TeacherEntity {
+public class TeacherEntity extends UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -17,7 +18,9 @@ public class TeacherEntity {
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     private List<SubjectEntity> subjects = new ArrayList<>();
 
+
     public TeacherEntity(String name) {
+        super();
         this.name = name;
     }
 
@@ -52,4 +55,5 @@ public class TeacherEntity {
     public void setSubjects(List<SubjectEntity> subjects) {
         this.subjects = subjects;
     }
+
 }

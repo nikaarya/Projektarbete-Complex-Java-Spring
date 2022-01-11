@@ -1,13 +1,15 @@
 package com.example.projectarbetecomplexjavaspring.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
-public class StudentEntity {
+public class StudentEntity extends UserEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -18,7 +20,8 @@ public class StudentEntity {
     @ManyToMany
     private List<SubjectEntity> subjects = new ArrayList<>();
 
-    public StudentEntity(String name, String email) {
+    public StudentEntity(String username, String password, Set<RoleEntity> roles, String name, String email) {
+        super(username, password, roles);
         this.name = name;
         this.email = email;
     }
@@ -62,5 +65,6 @@ public class StudentEntity {
     public void setSubjects(List<SubjectEntity> subjects) {
         this.subjects = subjects;
     }
+
 }
 

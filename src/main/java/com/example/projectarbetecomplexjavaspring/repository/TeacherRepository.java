@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TeacherRepository extends CrudRepository<TeacherEntity, Long> {
    // RoleEntity findByRole(String role);
+    TeacherEntity findTeacherByUsername (String username);
 }

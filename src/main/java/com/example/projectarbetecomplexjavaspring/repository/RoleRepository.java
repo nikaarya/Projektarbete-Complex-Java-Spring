@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RoleRepository extends CrudRepository<RoleEntity, Long> {
-    //RoleEntity findByRole(String role);
+    RoleEntity findByRole(String role);
 }
