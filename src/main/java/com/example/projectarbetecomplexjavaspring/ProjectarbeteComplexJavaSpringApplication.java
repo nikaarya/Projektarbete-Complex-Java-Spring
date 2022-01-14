@@ -24,6 +24,7 @@ public class ProjectarbeteComplexJavaSpringApplication {
     public CommandLineRunner setUpRoles(RoleRepository roleRepository) {
         return (args) -> {
             roleRepository.save(new RoleEntity("ROLE_ADMIN"));
+            roleRepository.save(new RoleEntity("ROLE_TEACHER"));
             roleRepository.save(new RoleEntity("ROLE_USER"));
         };
     }
