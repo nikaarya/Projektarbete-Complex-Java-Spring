@@ -18,8 +18,19 @@ public class UserController {
     @PostMapping("signup")
     public ResponseEntity<UserEntity> createUser(@RequestBody UserEntity user) {
         UserEntity createdUser = userService.createUser(user);
-
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+    }
+
+    @PostMapping("createadmin")
+    public ResponseEntity<UserEntity> createAdmin(@RequestBody UserEntity user) {
+        UserEntity createdAdmin = userService.createAdmin(user);
+        return new ResponseEntity<>(createdAdmin, HttpStatus.CREATED);
+    }
+
+    @PostMapping("createteacher")
+    public ResponseEntity<UserEntity> createTeacher(@RequestBody UserEntity user) {
+        UserEntity createdTeacher = userService.createTeacher(user);
+        return new ResponseEntity<>(createdTeacher, HttpStatus.CREATED);
     }
 
     @GetMapping()

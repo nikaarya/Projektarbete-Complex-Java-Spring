@@ -39,9 +39,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/home", "/users/signup").permitAll()
-                .antMatchers("/admin").hasRole("ADMIN")
-                .anyRequest().authenticated()
+                .antMatchers("/users/signup", "/users/createadmin", "/users/createadmin").permitAll()
+                .antMatchers("/students").hasAnyRole("ADMIN", "TEACHER", "USER")
+                .antMatchers("/teachers").hasAnyRole("ADMIN", "TEACHER")
+                .antMatchers("/admins").hasRole("ADMIN")
+                .anyRequest().authenticated();
+                /*
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
@@ -50,6 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .permitAll();
+                */
 
     }
 }

@@ -24,6 +24,21 @@ public class UserService {
         userEntity.addRole(roleToAdd);
         return userRepository.save(userEntity);
     }
+
+    public UserEntity createAdmin(UserEntity userEntity) {
+        userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
+        RoleEntity roleToAdd = roleRepository.findByRole("ROLE_ADMIN");
+        userEntity.addRole(roleToAdd);
+        return userRepository.save(userEntity);
+    }
+
+    public UserEntity createTeacher(UserEntity userEntity) {
+        userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
+        RoleEntity roleToAdd = roleRepository.findByRole("ROLE_TEACHER");
+        userEntity.addRole(roleToAdd);
+        return userRepository.save(userEntity);
+    }
+
     public Iterable<UserEntity> findAllUsers() {
         return userRepository.findAll();
     }
