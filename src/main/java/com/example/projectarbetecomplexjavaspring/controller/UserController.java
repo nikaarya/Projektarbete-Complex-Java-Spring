@@ -1,6 +1,7 @@
 package com.example.projectarbetecomplexjavaspring.controller;
 
 import com.example.projectarbetecomplexjavaspring.entity.UserEntity;
+import com.example.projectarbetecomplexjavaspring.exceptions.UnauthorizedException;
 import com.example.projectarbetecomplexjavaspring.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +37,12 @@ public class UserController {
     @GetMapping()
     public ResponseEntity<Iterable<UserEntity>> findAllUsers() {
         Iterable<UserEntity> allUsers = userService.findAllUsers();
-        return new ResponseEntity<>(allUsers, HttpStatus.OK);
+        String message = "Not authorized";
+        try {
+            return new ResponseEntity<>(allUsers, HttpStatus.OK);
+        } catch (UnauthorizedException ue) {
+            throw new UnauthorizedException(message);
+        }
     }
 
 }
