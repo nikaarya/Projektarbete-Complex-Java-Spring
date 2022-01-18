@@ -1,9 +1,28 @@
 # Projektarbete-Complex-Java-Spring
 
+== INTRO ==
+
+This project makes use of Spring Boot, Spring Security and JMS in Maven.
+The best way to test the endpoints is through Insomnia or Postman.
+
+Different user roles have access to different endpoints. For example,
+admin can access everything while the basic user role can only reach
+endpoints like 'students'.
+
+The best way to try out the endpoints is to start by create the desired
+user. After that you can play around with the endpoints that you see fit.
+
+!BE AWARE! if you want to jump from, an admin role to a teacher role.
+Insomnia will save a cookie of the previous role and cause an 401 error
+on every call you'll try and make. Clear the cookies or restart Insomnia
+and it should work.
+
+= = = = = =
+
 -ADMIN endpoints-
 POST /admins
 GET /admins
-DELTE /admins/{id}
+DELETE /admins/{id}
 
 -BOOK endpoints-
 POST /books
