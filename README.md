@@ -12,9 +12,9 @@ endpoints like 'students'.
 The best way to try out the endpoints is to start by create the desired
 user. After that you can play around with the endpoints that you see fit.
 
-!BE AWARE! if you want to jump from, an admin role to a teacher role.
-Insomnia will save a cookie of the previous role and cause an 401 error
-on every call you'll try and make. Clear the cookies or restart Insomnia
+!BE AWARE! if you want to jump between roles. Insomnia will save a cookie 
+of the previous role you created, and it will cause an 401 error
+on every call you'll try and make. Clear the cookies or restart Insomnia, 
 and it should work.
 
 = = = = = =
