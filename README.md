@@ -19,74 +19,81 @@ and it should work.
 
 = = = = = =
 
--ADMIN endpoints-
+# ADMIN endpoints:
 POST /admins
 GET /admins
 DELETE /admins/{id}
 
-JSON field:
-   String name
+JSON body:
 
--BOOK endpoints-
+    String name
+
+# BOOK endpoints:
+
 POST /books
 DELETE /books/{id}
 GET /books/{id}
 GET(all) /books
 
-JSON field:
+JSON body:
+
     String name
     String genre
     String isbn
     ManyToOne - library
 
--LIBRARY endpoints-
+# LIBRARY endpoints:
 POST /libraries
 GET /libraries
 PUT /libraries/update
 
-JSON field:
+JSON body:
+
     String name
     OneToMany - book
 
--STUDENT endpoints-
+# STUDENT endpoints:
 POST /students
 DELETE /students/{id}
 GET /students/{id}
 GET(all) /students
 
-JSON field:
+JSON body:
+
     String name
     String email
     ManyToMany - subject
 
--SUBJECT endpoints-
+# SUBJECT endpoints:
 POST /subjects
 DELETE /subjects/{id}
 GET /subjects/{id}
 GET(all) /subjects
 
-JSON field:
+JSON body:
+
     String name
     ManyToOne - teacher
     ManyToMany - student
 
--TEACHER endpoints-
+# TEACHER endpoints:
 POST /teachers
 DELETE /teachers/{id}
 GET /teachers/{id}
 GET(all) /books
 
-JSON field:
+JSON body:
+
     String name
     OneToMany - subjects 
 
--USERS endpoints-
+# USERS endpoints:
 POST
 /users/signup
 /users/createadmin
 /users/createteacher
 GET /users
 
-JSON field:
+JSON body:
     String username
     String password
