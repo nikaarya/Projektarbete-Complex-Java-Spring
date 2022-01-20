@@ -95,5 +95,6 @@ POST
 GET /users
 
 JSON body:
+
     String username
     String password
