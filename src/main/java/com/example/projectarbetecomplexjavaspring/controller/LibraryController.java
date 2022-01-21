@@ -27,7 +27,7 @@ public class LibraryController {
     }
 
     @PostMapping()
-    public ResponseEntity<LibraryEntity> createSLibrary(@RequestBody LibraryEntity libraryEntity) {
+    public ResponseEntity<LibraryEntity> createLibrary(@RequestBody LibraryEntity libraryEntity) {
         LibraryEntity createdLibrary = libraryService.createLibrary(libraryEntity);
         return new ResponseEntity<>(createdLibrary, HttpStatus.CREATED);
     }

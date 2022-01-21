@@ -2,6 +2,7 @@ package com.example.projectarbetecomplexjavaspring.controller;
 
 import com.example.projectarbetecomplexjavaspring.entity.BookEntity;
 import com.example.projectarbetecomplexjavaspring.entity.StudentEntity;
+import com.example.projectarbetecomplexjavaspring.exceptions.NoContentException;
 import com.example.projectarbetecomplexjavaspring.service.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,12 @@ public class BookController {
     @GetMapping("{bookId}")
     public ResponseEntity<Optional<BookEntity>> findBookById(@PathVariable Long bookId) {
         Optional<BookEntity> foundBook = bookService.findBookById(bookId);
-        return new ResponseEntity<>(foundBook, HttpStatus.OK);
+        String message = "Couldn't find book with requested ID";
+        if (foundBook.isEmpty()) {
+            throw new NoContentException(message);
+        } else {
+            return new ResponseEntity<>(foundBook, HttpStatus.OK);
+        }
     }
 
     @GetMapping()

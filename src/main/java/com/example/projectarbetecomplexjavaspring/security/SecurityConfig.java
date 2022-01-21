@@ -39,10 +39,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/users/signup", "/users/createadmin", "/users/createadmin").permitAll()
+                .antMatchers("/users/signup", "/users/createadmin", "/users/createteacher").permitAll()
                 .antMatchers("/students").hasAnyRole("ADMIN", "TEACHER", "USER")
-                .antMatchers("/teachers").hasAnyRole("ADMIN", "TEACHER")
-                .antMatchers("/admins").hasRole("ADMIN")
+                .antMatchers("/teachers", "/books", "/subjects").hasAnyRole("ADMIN", "TEACHER")
+                .antMatchers("/admins", "/libraries", "/users").hasRole("ADMIN")
                 .anyRequest().authenticated();
                 /*
                 .and()

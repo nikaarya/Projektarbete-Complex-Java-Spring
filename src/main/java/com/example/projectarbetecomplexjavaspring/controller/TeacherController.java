@@ -2,6 +2,7 @@ package com.example.projectarbetecomplexjavaspring.controller;
 
 import com.example.projectarbetecomplexjavaspring.entity.LibraryEntity;
 import com.example.projectarbetecomplexjavaspring.entity.TeacherEntity;
+import com.example.projectarbetecomplexjavaspring.exceptions.NoContentException;
 import com.example.projectarbetecomplexjavaspring.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +36,12 @@ public class TeacherController {
     @GetMapping("{id}")
     public ResponseEntity<Optional<TeacherEntity>> findTeacherById(@PathVariable Long id) {
         Optional<TeacherEntity> foundTeacher = teacherService.findTeacherById(id);
-        return new ResponseEntity<>(foundTeacher, HttpStatus.OK);
+        String message = "Couldn't find teacher with requested ID";
+        if (foundTeacher.isEmpty()) {
+            throw new NoContentException(message);
+        } else {
+            return new ResponseEntity<>(foundTeacher, HttpStatus.OK);
+        }
     }
 
     @GetMapping
